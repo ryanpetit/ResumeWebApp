@@ -1,19 +1,29 @@
+
 <html>
-    <head>
-        <title>Address</title>
-    </head>
-    <body>
-        <h1>Address</h1>
-        <table border="1">
-            <tr><th>Address ID</th><th>Street</th><th>Zip Code</th></tr>
-            <% for(var i=0; result.length > i; i++ ) { %>
-            <tr>
-                <td><%= result[i].address_id%></td>
-                <td><a href="/address/?address_id=<%= result[i].address_id %>"><%= result[i].street %></a></td>
-                <td><%= result[i].zip_code %></td>
-            </tr>
-            <% } %>
-        </table>
-    </body>
+<head>
+    <title>Addresses</title>
+</head>
+<body>
+<h1>Addresses</h1>
+<a href="/address/add">Add New Address</a> <br />
+<br />
+
+<table border="1">
+    <tr><th>Street</th><th>ZIP code</th><th>Action</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/address/?address_id=<%= result[i].address_id %>"><%= result[i].street %> </a></td>
+        <td><%= result[i].zip_code %></td>
+        <td><form action="/address/delete/">
+                <input type="hidden" name="address_id" id="address_id" value="<%= result[i].address_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+<br />
+<a href="/">Back to Index</a>
+</body>
 
 </html>

@@ -1,15 +1,17 @@
 <html>
 <head>
-    <title>Accountss - <%= result[0].email %></title>
+    <title>Account - <%= result[0].first_name %> <%= result[0].last_name %></title>
 </head>
 <body>
-    <h1>Address</h1>
+    <h1>Account Information</h1>
     <ul>
-        <li>Account ID: <%= result[0].address_id%></li>
+        <li>Account ID: <%= result[0].account_id%></li>
         <li>Email: <%= result[0].email %></li>
-        <li>First Name: <%= result[0].first_name %></li>
-        <li>Last Name: <%= result[0].last_name%></li>
+        <li>Name: <%= result[0].first_name %> <%= result[0].last_name %></li>
     </ul>
+    <a href="/account/all">Back to View All Accounts</a>
+    <br />
+    <a href="/">Back to Main Page</a>
 </body>
 
 </html>
