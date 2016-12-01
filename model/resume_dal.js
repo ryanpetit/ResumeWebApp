@@ -6,6 +6,7 @@ var connection = mysql.createConnection(db.config);
 
 exports.getAll = function(callback) {
     var query = 'SELECT * FROM resume_view;';
+    //var query = 'SELECT * FROM resume;';
 
     connection.query(query, function(err, result) {
         callback(err, result);
@@ -14,6 +15,7 @@ exports.getAll = function(callback) {
 
 exports.getById = function(resume_id, callback) {
     var query = 'SELECT * FROM resume WHERE resume_id = ?';
+    //var query = 'SELECT * FROM resume';
     var queryData = [resume_id];
 
     connection.query(query, queryData, function(err, result) {
@@ -26,7 +28,7 @@ exports.insert = function(params, callback) {
 
     // the question marks in the sql query above will be replaced by the values of the
     // the data in queryData
-    var queryData = [params.user_account_id, params.resume_name];
+    var queryData = [params.account_id, params.resume_name];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
