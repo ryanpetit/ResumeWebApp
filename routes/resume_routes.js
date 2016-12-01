@@ -17,7 +17,7 @@ router.get('/all', function(req, res) {
 
 });
 
-// View the resume for the given id
+// View resume for the given id
 router.get('/', function(req, res){
     if(req.query.resume_id == null) {
         res.send('resume_id is null');
