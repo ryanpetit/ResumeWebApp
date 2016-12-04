@@ -1,4 +1,4 @@
-<html>
+<%- include("../includes/header.ejs", {title:"Addresses - " + result[0].address_name}); %>
 <head>
     <title>Address - <%= result[0].address_id %></title>
 </head>
@@ -14,4 +14,4 @@
     <a href="/">Back to Main Page</a>
 </body>
 
-</html>
+<%- include("../includes/footer.ejs"); %>

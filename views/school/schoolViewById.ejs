@@ -1,4 +1,5 @@
-<html>
+<%- include("../includes/header.ejs", {title:"Schools - " + result[0].school_name}); %>
+<!--<html>-->
 <head>
     <title>Schools - <%= result[0].school_name %></title>
 </head>
@@ -14,4 +15,6 @@
     <a href="/">Back to Main Page</a>
 </body>
 
-</html>
+<!--</html>-->
+
+<%- include("../includes/footer.ejs"); %>

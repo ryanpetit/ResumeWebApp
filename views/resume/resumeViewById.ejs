@@ -1,4 +1,4 @@
-<html>
+<%- include("../includes/header.ejs", {title:"Resumes - " + result[0].resume_name}); %>
 <head>
     <title>Resume - <%= result[0].resume_name %></title>
 </head>
@@ -15,4 +15,4 @@
     <a href="/">Back to Main Page</a>
 </body>
 
-</html>
+<%- include("../includes/footer.ejs"); %>

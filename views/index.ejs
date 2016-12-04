@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
+
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -18,5 +19,20 @@
 
     <br />
 
-  </body>
-</html>
+</body>
+</html>-->
+
+<%- include("./includes/header.ejs", {title: title}); %>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+
+<a href="/school/all">Schools - View All</a> <br />
+<a href="/account/all">Accounts - View All</a> <br />
+<a href="/resume/all">Resumes - View All</a> <br />
+<a href="/company/all">Companies - View All</a> <br />
+<a href="/address/all">Address - View All</a> <br />
+<a href="/skill/all">Skills - View All</a> <br />
+
+
+<br />
+<%- include("./includes/footer.ejs"); %>
