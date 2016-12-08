@@ -1,0 +1,85 @@
+<%- include("../includes/header.ejs", {title:"Add New Resume"}); %>
+<h1>Update <%= resume.resume_name%></h1>
+<form action="/resume/update" method="get">
+    <input type="hidden" id="resume_id" name="resume_id" value="<%= resume.resume_id %>">
+    Resume Name: <input id="resume_name" name="resume_name" type="text" value="<%= resume.resume_name%>"/>
+    <br />
+    <br />
+    Account
+    <br />
+    <select id="account_id" name="account_id">
+        <% for(var i=0; account.length > i; i++ ) {
+            var selected = "";
+            if(account[i].account_id == resume.account_id) {
+                selected = "selected";
+            }
+        %>
+        <option value="<%= account[i].account_id %>" <%= selected %>><%= account[i].first_name + ' ' + account[i].last_name %></option>
+        <% } %>
+    </select>
+    <br />
+    <br />
+
+    Companies:
+    <br />
+    <select id="company_id" name="company_id" multiple="multiple">
+        <% for(var i=0; company.length > i; i++ ) {
+            var selected = "";
+            for (var j = 0; j < companyX.length; j++ ) {
+                if (selected == "" && company[i].company_id == companyX[j].company_id) {
+                    selected = "selected";
+                }
+            }
+        %>
+        <option value="<%= company[i].company_id %>" <%= selected %>><%= company[i].company_name %></option>
+        <% } %>
+    </select>
+    <br />
+    <br />
+
+    School(s):
+    <br />
+    <select id="school_id" name="school_id" multiple="multiple">
+        <% for(var i=0; school.length > i; i++ ) {
+            var selected = "";
+            for (var j = 0; j < schoolX.length; j++ ) {
+                if(selected == "" && school[i].school_id == schoolX[j].school_id) {
+                    selected = "selected";
+                }
+            }
+        %>
+        <option value="<%= school[i].school_id %>" <%= selected %>><%= school[i].school_name %></option>
+        <% } %>
+    </select>
+    <br />
+    <br />
+
+    Skill(s):
+    <br />
+    <select id="skill_id" name="skill_id" multiple="multiple">
+        <% for(var i=0; skill.length > i; i++ ) {
+            var selected = "";
+            for (var j = 0; j < skillX.length; j++ ) {
+                if(selected == "" && skill[i].skill_id == skillX[j].skill_id) {
+                    selected = "selected";
+                }
+            }
+        %>
+        <option value="<%= skill[i].skill_id %>" <%= selected %>><%= skill[i].skill_name %></option>
+        <% } %>
+    </select>
+
+    <!-- Initialize the multiselect plugin: -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#user_account_id').multiselect();
+            $('#company_id').multiselect();
+            $('#school_id').multiselect();
+            $('#skill_id').multiselect();
+        });
+    </script>
+    <br />
+    <br />
+    <input type="submit" />
+</form>
+<%- include("../includes/footer.ejs"); %>

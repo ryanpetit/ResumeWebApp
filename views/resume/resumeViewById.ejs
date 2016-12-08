@@ -1,18 +1,39 @@
-<%- include("../includes/header.ejs", {title:"Resumes - " + result[0].resume_name}); %>
+<%- include("../includes/header.ejs", {title:"Resumes - " + resume[0].resume_name}); %>
 <head>
-    <title>Resume - <%= result[0].resume_name %></title>
+    <title>Resumes - <%= resume[0].resume_name %></title>
 </head>
 <body>
-    <h1>Resume</h1>
+<h1>Resume</h1>
+<ul>
+    <br/>
+    <li>Resume Name: <%= resume[0].resume_name %></li>
+    <li>Resume ID: <%= resume[0].resume_id %></li>
+    <li>Account ID: <%= resume[0].user_account_id %></li>
+    <li>Companies:</li>
     <ul>
-        <li>Resume ID: <%= result[0].resume_id%></li>
-        <li>Resume Name: <%= result[0].resume_name %></li>
-        <li>Account ID: <%= result[0].user_account_id %></li>
+        <% for(var i=0; resume_company.length > i; i++ ) { %>
+        <li><%= resume_company[i].company_name %></li>
+        <% } %>
     </ul>
-    <br />
-    <a href="/resume/all">Back to View All Resumes</a>
-    <br />
-    <a href="/">Back to Main Page</a>
+    <li>Skill:</li>
+    <ul>
+        <% for(var i=0; resume_skill.length > i; i++ ) { %>
+        <li> <%= resume_skill[i].skill_name %> </li>
+        <ul>
+            <li> <%= resume_skill[i].description %></li>
+        </ul>
+        <% } %>
+    </ul>
+    <li>Education:</li>
+    <ul>
+        <% for(var i=0; resume_school.length > i; i++ ) { %>
+        <li> <%= resume_school[i].school_name %> </li>
+        <% } %>
+    </ul>
+    <br/>
+</ul>
+<a href="/resume/all">Back to View All Resumes</a>
+<br />
+<a href="/">Back to Main Page</a>
 </body>
-
 <%- include("../includes/footer.ejs"); %>

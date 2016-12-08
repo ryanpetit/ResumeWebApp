@@ -12,6 +12,16 @@ exports.getAll = function(callback) {
     });
 };
 
+exports.getAllC = function(callback) {
+    var query = 'SELECT * FROM address a ' +
+        'left join company_address ca ON ca.address_id = a.address_id ' +
+        'where ca.company_id;';
+
+    connection.query(query, function(err, result) {
+        callback(err, result);
+    });
+};
+
 exports.getById = function(address_id, callback) {
     var query = 'SELECT * FROM address WHERE address_id = ?';
     var queryData = [address_id];

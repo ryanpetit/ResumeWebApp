@@ -39,7 +39,7 @@ router.get('/add', function(req, res){
 });*/
 router.get('/add', function(req, res){
     // passing all the query parameters (req.query) to the insert function instead of each individually
-    address_dal.getAll(function(err,result) {
+    address_dal.getAllC(function(err,result) {
         if (err) {
             res.send(err);
         }
@@ -129,7 +129,7 @@ router.get('/edit2', function(req, res){
     }
     else {
         company_dal.getById(req.query.company_id, function(err, company){
-            address_dal.getAll(function(err, address) {
+            address_dal.getAllC(function(err, address) {
                 res.render('company/companyUpdate', {company: company[0], address: address});
             });
         });

@@ -12,15 +12,16 @@
     <br />
     Address
     <select id="address_id" name="address_id">
-        <% for(var i=0; address.length > i; i++ ) {
+       <% for(var i=0; address.length > i; i++ ) {
             var selected = "";
             if(address[i].address_id == school.school_id) {
                 selected = "selected";
             }
         %>
-        <option value="<%= address[i].address_id %>" <%= selected %>><%= address[i].street + ', ' + address[i].zipcode %></option>
+        <option value="<%= address[i].address_id %>" <%= selected %>><%= address[i].street + ', ' + address[i].zip_code %></option>
         <% } %>
     </select>
+
 
     <br />
 
@@ -28,6 +29,5 @@
 
 </form>
 </body>
-
 <%- include("../includes/footer.ejs"); %>
 

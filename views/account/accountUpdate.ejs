@@ -1,0 +1,16 @@
+<%- include("../includes/header.ejs", {title: "Update " + account.first_name + " " + account.last_name}); %>
+<h1>Update <%= account.first_name + " " + account.last_name + "'s account" %></h1>
+<form action="/account/update" method="get">
+    <input type="hidden" id="account_id" name="account_id" value="<%= account.account_id %>">
+    Email: <input type="text" id="email" name="email" value="<%= account.email %>" />
+    <br />
+    First Name: <input type="text" id="first_name" name="first_name" value="<%= account.first_name %>" />
+    <br />
+    Last Name: <input type="text" id="last_name" name="last_name" value="<%= account.last_name %>" />
+    <br />
+
+    <input type="submit" />
+
+</form>
+
+<%- include("../includes/footer.ejs"); %>

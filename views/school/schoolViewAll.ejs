@@ -48,7 +48,7 @@
         <td><%= result[i].street %>, <%= result[i].zip_code %></td>
         <td>
             <button onclick="event.preventDefault();window.location.href='/school/edit2/?school_id=<%= result[i].school_id %>'">Edit</button>
-            <form action="/school/delete/">
+            <form action="/school/delete/" style="display:inline">
                 <input type="hidden" name="school_id" id="school_id" value="<%= result[i].school_id %>" />
                 <input type="submit" value="Delete"/>
             </form>
